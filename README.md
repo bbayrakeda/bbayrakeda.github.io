@@ -1,7 +1,14 @@
-# portfolio
+# Data Scientist
 
 ### Education
+Economics, M.Sc.
 
-### Work Experience
+### Work Experience
+- 
+- f
+- sf
+
+### Projects
+
 
 
