@@ -89,7 +89,7 @@
 
   <h2>Exploratory Analysis</h2>
   <p><i>Correlation Heatmaps of Selected Countries (Germany, Romania, Spain)</i></p>
-  <img src="images/exports/correlation_heatmaps.png" alt="Correlation Heatmaps"/>
+  <img src="images/hightech/48g_p1.png" alt="Exploratory data analysis"/>
 
   <h2>Elastic Net Regression</h2>
   <p>
@@ -106,6 +106,9 @@
     suggesting these measures play a substantial role in explaining variation in the outcome variable.
   </p>
 
+  <p><i>Elastic Net Feature Importance Plot</i></p>
+  <img src="images/hightech/48g_p8.png" alt="Feature Importance"/>
+
   <h2>Correlation and Coefficient Direction Check</h2>
   <p>
     In this step, we cross-validated the direction and strength of the relationship between the 
@@ -116,6 +119,9 @@
     be flagged for removal or further inspection.
   </p>
 
+    <p><i>Model Coefficients and Correlations</i></p>
+  <img src="images/hightech/48g_p9.png" alt=""/>
+
   <h2>PLM Analysis</h2>
   <p>
     Model finds out that; "taxes_less_subsidies_current_usd", 
@@ -123,7 +129,7 @@
     significant.
   </p>
   <p><i>PLM Feature Importance Graph</i></p>
-  <img src="images/exports/plm_feature_importance.png" alt="PLM Feature Importance"/>
+  <img src="images/hightech/48g_p10.png" alt="PLM Feature Importance"/>
 
   <h2>Multicollinearity Control with VIF</h2>
   <p>
@@ -141,6 +147,11 @@
     variable.
   </p>
 
+  
+    <p><i>Feature Importance (VIF Selected Features)</i></p>
+  <img src="images/hightech/48g_p11.png" alt=""/>
+
+
   <h2>Decision Tree Analysis</h2>
   <p>
     In this step, we built a decision tree model to explore the patterns behind high-tech exports. The 
@@ -150,6 +161,9 @@
     statistically grounded.
   </p>
 
+    <p><i>Decision Tree Analysis</i></p>
+  <img src="images/hightech/48g_p12.png" alt="Decision Tree"/>
+
   <h3>Decision Tree Interpretations</h3>
   <ul>
     <li>The most influential variable is gross fixed capital formation. Countries with higher levels of capital investment tend to have significantly higher levels of high-tech exports.</li>
@@ -158,13 +172,16 @@
     <li>Conversely, the lowest levels of exports (below $2 billion) are found in countries with very low capital investment.</li>
   </ul>
   <p><i>Feature Importance for Decision Tree Analysis</i></p>
-  <img src="images/exports/decision_tree.png" alt="Decision Tree"/>
+  <img src="images/hightech/48g_p13.png" alt=""/>
 
   <h2>Clustering Analysis</h2>
   <p>
     We selected 3 clusters based on the results of Elbow method applied to the scaled dataset. The 
     Elbow method showed a clear inflection point at k = 3.
   </p>
+
+    <p><i>Optimal Number of Clusters</i></p>
+  <img src="images/hightech/48g_p14.png" alt=""/>
 
   <h3>Country Segmentation</h3>
   <p><b>Cluster 1 – Open & Wealthy Economies</b></p>
@@ -203,6 +220,12 @@
   <p><i>Countries: Austria, Belgium, Czechia, Denmark, Finland, Iceland, Ireland, Luxembourg, 
   Netherlands, Norway, Sweden and Switzerland</i></p>
 
+    <p><i>K-means Clustering (3 Clusters)</i></p>
+  <img src="images/hightech/48g_p15.png" alt=""/>
+
+    <p><i>Clusters of European Countries by High-Tech Characteristics (2021)</i></p>
+  <img src="images/hightech/48g_p16.png" alt=""/>
+
   <h2>PCA Analysis on Countries Over Years</h2>
   <p>
     Visual below shows the trajectories of selected European countries on the PCA space from 2012 
@@ -220,7 +243,7 @@
     Italy and Romania display more irregular and shifting paths, reflecting fluctuations or mixed 
     progress in their economic or structural indicators.
   </p>
-  <img src="images/exports/pca_plot.png" alt="PCA Analysis"/>
+  <img src="images/hightech/48g_p17.png" alt="PCA Analysis"/>
 
   <h3>Dimensional PCA Analysis</h3>
   <ul>
@@ -232,6 +255,8 @@
     upward are strengthening in governance and demographic structure. The position and trajectory 
     of each country in the PCA space help visualize multidimensional development over time.
   </p>
+
+  <img src="images/hightech/48g_p18.png" alt="Yearly Locations of Countries on PCA Analysis"/>
 
   <h2>Conclusion</h2>
   <p>
