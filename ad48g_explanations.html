@@ -7,10 +7,70 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
   <style>
     body { background-color: #f9f9f9; }
-    .container { max-width: 900px; padding: 40px 20px; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 12px; margin: 50px auto; }
-    img { max-width: 100%; margin: 20px 0; border-radius: 8px; }
+    .container { 
+      max-width: 1100px; /* daha geniş hale getirildi */
+      padding: 30px 25px; 
+      background: white; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+      border-radius: 12px; 
+      margin: 30px auto; /* üst-alt boşluk biraz azaldı */
+    }
+    img { 
+      max-width: 100%; 
+      margin: 20px auto; 
+      border-radius: 8px; 
+      display: block; 
+    }
     h1, h2, h3 { margin-top: 30px; }
     ul { margin-left: 20px; }
+
+    /* Görselleri düzenleme */
+    .img-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 25px 0;
+    }
+
+    .img-popup-small {
+      cursor: pointer;
+      transition: 0.3s;
+      width: 60%;
+      max-width: 600px;
+      height: auto;
+    }
+
+    .img-popup-large {
+      cursor: pointer;
+      transition: 0.3s;
+      width: 85%;
+      max-width: 900px;
+      height: auto;
+    }
+
+    .img-popup-small:hover, .img-popup-large:hover {
+      opacity: 0.7;
+    }
+
+    /* Pop-up tam ekran görüntü */
+    .popup-container {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 50px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+    }
+    .popup-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+    }
   </style>
 </head>
 
@@ -28,69 +88,15 @@
     Union. Utilizing a panel dataset covering the years 2012 to 2021, the study incorporates a wide 
     range of macroeconomic, commercial, political, and technology-related indicators.
   </p>
-  <p>
-    The relationship between high-tech exports and these explanatory variables is explored through 
-    various analytical methods, including Elastic Net regularization, decision tree analysis, k-means 
-    clustering, and principal component analysis (PCA). These complementary approaches enable 
-    the identification of the most influential variables across different domains.
-  </p>
-  <p>
-    Findings from the analysis underscore the critical role of R&amp;D expenditure, trade openness, 
-    control of corruption, and GDP per capita in accounting for cross-country variation in 
-    high-technology export performance.
-  </p>
 
-  <h2>Objective</h2>
-  <p>
-    The key objectives of the study are as follows: (1) to determine which macro-level variables are 
-    most strongly associated with high-tech export performance, (2) to cluster European countries 
-    based on these explanatory factors and explore the common characteristics within each group, 
-    (3) to track and compare the evolution of countries’ positions with respect to these variables over 
-    the period 2012–2021.
-  </p>
+  <!-- örnek: img-container içinde yan yana -->
+  <div class="img-container">
+    <img src="images/hightech/48g_p1.png" alt="High-Tech Exports Graphs" class="img-popup-small"/>
+    <img src="images/hightech/48g_p2.png" alt="High-Tech Exports Ratio Graphs" class="img-popup-small"/>
+  </div>
 
-  <h2>Data</h2>
-  <p>
-    This study uses the World Development Indicators (WDI) dataset provided by the World Bank, 
-    which offers a rich source of annual, country-level indicators covering a wide range of economic, 
-    innovation, governance, and social metrics. Our dataset includes observations for Euro Area 
-    countries spanning the period from 2012 to 2022, aligned with the availability of high-technology 
-    exports data.
-  </p>
-  <p>
-    The dataset is structured in a long format, where each row corresponds to a country-indicator 
-    combination, and yearly values are provided across multiple columns. We focus on a selected 
-    set of indicators relevant to high-technology export performance. Key variables include:
-  </p>
-  <p><b>The dependent variable:</b></p>
-  <ul>
-    <li>High-technology exports (current US$)</li>
-  </ul>
-  <p><b>Innovation and economic indicators:</b></p>
-  <ul>
-    <li>Research and development expenditure (% of GDP)</li>
-    <li>Researchers in R&amp;D (per million people)</li>
-    <li>Adjusted net national income per capita (current US$)</li>
-  </ul>
-  <p><b>Governance and institutional quality:</b></p>
-  <ul>
-    <li>Control of corruption</li>
-  </ul>
-  <p><b>Human capital and infrastructure:</b></p>
-  <ul>
-    <li>Technicians in R&amp;D (per million people)</li>
-    <li>Self-employed, total (% of total employment) (modeled ILO estimate)</li>
-    <li>Population ages 15-64 (% of total population)</li>
-  </ul>
-  <p>
-    After preprocessing and feature engineering (e.g., combining patent indicators), the dataset was 
-    used for modeling and clustering.
-  </p>
-
-  <h2>Exploratory Analysis</h2>
-  <img src="images/hightech/48g_p1.png" alt="High-Tech Exports Graphs for All Countries (2012,2017,2021)"/>
-    <img src="images/hightech/48g_p2.png" alt="High-Tech Exports Ratio Graphs for All Countries (2012,2017,2021)"/>
-    <img src="images/hightech/48g_p3.png" alt="High Tech Exports Values on the Map (2021)"/>
+  <!-- Tek görsel büyük şekilde -->
+  <img src="images/hightech/48g_p3.png" alt="High Tech Exports Values on the Map (2021)" class="img-popup-large"/>
     <img src="images/hightech/48g_p4.png" alt="High-Tech Exports Over Time by Country"/>
     <p><i>Correlation Heatmaps of Selected Countries (Germany, Romania, Spain)</i></p>
     <img src="images/hightech/48g_p5.png" alt=""/>
