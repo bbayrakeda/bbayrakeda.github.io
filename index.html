@@ -19,6 +19,20 @@
     .card { box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: none; border-radius: 12px; }
     .card-img-top { height: 200px; object-fit: cover; border-top-left-radius: 12px; border-top-right-radius: 12px; }
     .card-body { min-height: 240px; }
+
+    .list-group-item {
+  border: none;
+  padding: 12px 0;
+  background: transparent;
+}
+.list-group-item strong {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+.list-group-item small {
+  color: #555;
+}
   </style>
 </head>
 <body>
@@ -85,51 +99,45 @@ US and Japan</h5>
       </div>
     </div>
 
-  <div class="projects-section container">
-  <h2 class="text-center mb-5">Selected Coursework</h2>
+<div class="projects-section container">
+  <h2 class="text-center mb-5">Coursework</h2>
 
   <!-- Finance -->
-  <h3 class="mb-4">Finance & Economics</h3>
-  <div class="row g-4">
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100">
-        <img src="images/coursework/turkey_growth.png" class="card-img-top" alt="Turkish Economy Coursework">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Growth, Productivity, and Employment in Turkish Manufacturing</h5>
-          <p class="card-text">Analyzed sectoral growth and productivity dynamics in Turkey using macroeconomic indicators and labor data.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <h3 class="mb-3">Finance & Economics</h3>
+  <ul class="list-group mb-4">
+    <li class="list-group-item">
+      <strong>Growth, Productivity, and Employment in Turkish Manufacturing</strong><br>
+      <small>Analyzed sectoral growth and productivity dynamics in Turkey using macroeconomic and labor data.</small>
+    </li>
+    <li class="list-group-item">
+      <strong>Forecasting US GDP Growth: Machine Learning and AR Models</strong><br>
+      <small>Compared tree-based ML models with autoregressive benchmarks to predict GDP growth.</small>
+    </li>
+  </ul>
 
   <!-- Data Science -->
-  <h3 class="mt-5 mb-4">Data Science & Machine Learning</h3>
-  <div class="row g-4">
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100">
-        <img src="images/coursework/var_exports.png" class="card-img-top" alt="VAR Analysis Coursework">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">VAR Analysis of High-Tech Exports in the EU</h5>
-          <p class="card-text">Implemented vector autoregression models to study EU export performance and cross-country interactions.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <h3 class="mb-3">Data Science & Machine Learning</h3>
+  <ul class="list-group mb-4">
+    <li class="list-group-item">
+      <strong>High-Tech Exports in the EU</strong><br>
+      <small>Identified key drivers of high-tech exports using Elastic Net, PCA, decision trees, and clustering.</small>
+    </li>
+    <li class="list-group-item">
+      <strong>VAR Analysis of High-Tech Exports</strong><br>
+      <small>Applied vector autoregression to study EU-wide export dynamics.</small>
+    </li>
+  </ul>
 
   <!-- Econometrics -->
-  <h3 class="mt-5 mb-4">Econometrics</h3>
-  <div class="row g-4">
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100">
-        <img src="images/coursework/privatization.png" class="card-img-top" alt="Privatization Coursework">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Privatization and Labor Share</h5>
-          <p class="card-text">Studied the effects of IMF privatization conditions on labor share using 2SLS and difference-in-differences methods.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <h3 class="mb-3">Econometrics</h3>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Privatization and Labor Share</strong><br>
+      <small>Examined IMF privatization conditions using 2SLS and difference-in-differences models.</small>
+    </li>
+  </ul>
 </div>
+
 
 
   </div>
