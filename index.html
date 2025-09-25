@@ -89,9 +89,15 @@
   box-shadow: 0 6px 18px rgba(100, 150, 255, 0.08);
   padding: 30px 20px 20px 20px;
   margin-bottom: 30px;
-  min-height: 350px;
-  /* Optional: For visual separation */
+  height: 400px; /* Statik yükseklik */
+  display: flex;
+  flex-direction: column;
   border: 1px solid #e3e9f2;
+}
+  .course-box h4 {
+  margin-top: 0; /* Başlık üst boşluğunu kaldır */
+  margin-bottom: 20px; /* Başlık alt boşluğunu biraz artırarak yukarıda konumlandır */
+  /* Eğer istersen font-size veya font-weight gibi özellikleri ekleyebilirsin */
 }
   </style>
 </head>
