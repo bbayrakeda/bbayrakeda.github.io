@@ -81,8 +81,7 @@
     <h1>A Comparative Time Series Analysis of Income-Consumption Relationships in the US and Japan</h1>
 
     <p>
-      <a href="https://drive.google.com/file/d/1U8LtjZrT_7bso6As3WfHdOgdNAzeLPbb/view?usp=sharing" target="_blank">View Full Project (PDF)</a><br/>
-      <a href="https://github.com/bbayrakeda/bbayrakeda.github.io/blob/main/AD48GProjectCodes.ipynb" target="_blank">View Full Project Code (GitHub)</a>
+      <a href="https://drive.google.com/file/d/1U8LtjZrT_7bso6As3WfHdOgdNAzeLPbb/view?usp=sharing" target="_blank">View Full Project</a><br/>
     </p>
 
     <!-- ===== ABSTRACT ===== -->
@@ -108,17 +107,6 @@
         and higher consumption propensities—motivate a comparative time-series analysis. Using annual World Bank indicators (adjusted net
         national income per capita and household final consumption expenditure in constant 2015 US$), this paper explores whether observed
         co-movements reflect long-run equilibrium relationships or short-run dynamics.
-      </p>
-    </section>
-
-    <!-- ===== LITERATURE ===== -->
-    <section id="literature">
-      <h2>Literature Review</h2>
-      <p>
-        Foundational contributions from Keynes (Absolute Income Hypothesis) and Friedman (Permanent Income Hypothesis) frame our empirical
-        approach. Empirical studies (e.g., Campbell 1987; King et al. 1991; Lettau & Ludvigson 2003) find mixed evidence for cointegration
-        between consumption and income depending on data frequency, variable definitions, and sample period. This paper situates itself within
-        that literature by offering a long-sample (1975–2021) annual comparison between two structurally different economies.
       </p>
     </section>
 
@@ -182,7 +170,7 @@
 
         <figure>
           <img src="imgs/Picture9.png" alt="Japan consumption ACF (1st diff)" class="img-small"/>
-          <figcaption><i>Figure 6: Japan — Consumption ACF (1st difference)</i></figcaption>
+          <figcaption><i>Figure 6:Japan — Consumption ACF (1st difference)</i></figcaption>
         </figure>
       </div>
 
@@ -197,15 +185,9 @@
       </p>
 
       <figure>
-        <img src="images/term/fig14_residuals.png" alt="Regression residuals (US)" class="img-large"/>
-        <figcaption><i>Figure 14: Residuals from US consumption-on-income regression (actual vs fitted).</i></figcaption>
+        <img src="imgs/Picture13.png" alt="Actual Residual Plot of the First Regression" class="img-large"/>
+        <figcaption><i>Figure 7:US Actual Residual Plot of the First Regression (actual vs fitted).</i></figcaption>
       </figure>
-
-      <figure>
-        <img src="images/term/fig15_adf_resid.png" alt="ADF on residuals" class="img-large"/>
-        <figcaption><i>Figure 15: ADF test on Engle–Granger residuals (US) under different deterministic specifications.</i></figcaption>
-      </figure>
-    </section>
 
     <!-- ===== VAR ===== -->
     <section id="var">
@@ -221,18 +203,6 @@
         past income does not Granger-cause consumption and past consumption does not Granger-cause income at conventional significance levels.
       </p>
 
-      <div class="img-row">
-        <figure>
-          <img src="images/term/fig17_us_granger.png" alt="US Granger causality test" class="img-small"/>
-          <figcaption><i>Figure 17: US — Granger causality test</i></figcaption>
-        </figure>
-
-        <figure>
-          <img src="images/term/fig18_japan_granger.png" alt="Japan Granger causality test" class="img-small"/>
-          <figcaption><i>Figure 18: Japan — Granger causality test</i></figcaption>
-        </figure>
-      </div>
-
       <h3>Variance Decomposition</h3>
       <p>
         Forecast error variance decompositions (via Cholesky identification) show that consumption variance is mainly explained by its own shocks.
@@ -242,12 +212,12 @@
 
       <figure>
         <img src="imgs/Picture16.png" class="img-large"/>
-        <figcaption><i>Figure 19: US — Variance decomposition (differenced series, Cholesky).</i></figcaption>
+        <figcaption><i>Figure 7: US — Variance decomposition (differenced series).</i></figcaption>
       </figure>
 
       <figure>
         <img src="imgs/Picture17.png" class="img-large"/>
-        <figcaption><i>Figure 20: Japan — Variance decomposition (differenced series, Cholesky).</i></figcaption>
+        <figcaption><i>Figure 8: Japan — Variance decomposition (differenced series).</i></figcaption>
       </figure>
     </section>
 
@@ -278,26 +248,6 @@
       </p>
     </section>
 
-    <!-- ===== FIGURES LIST ===== -->
-    <section id="figures-list">
-      <h2>Figures & image filenames (placeholders)</h2>
-      <p><i>Save/replace images under <code>images/term/</code> with the filenames below to match the paper figures.</i></p>
-      <ul>
-        <li><code>images/term/fig1_us_levels.png</code> — Figure 1: US income & consumption (levels)</li>
-        <li><code>images/term/fig2_japan_levels.png</code> — Figure 2: Japan income & consumption (levels)</li>
-        <li><code>images/term/fig3_us_scatter.png</code> — Figure 3: US scatter (income vs consumption)</li>
-        <li><code>images/term/fig4_japan_scatter.png</code> — Figure 4: Japan scatter</li>
-        <li><code>images/term/fig5_us_acf_diff.png</code> — Figure 5: US consumption ACF (1st diff)</li>
-        <li><code>images/term/fig6_japan_acf_diff.png</code> — Figure 6: Japan consumption ACF (1st diff)</li>
-        <li><code>images/term/fig7_us_adf.png</code> — Figure 7: US ADF test output</li>
-        <li><code>images/term/fig14_residuals.png</code> — Figure 14: Residuals (US regression)</li>
-        <li><code>images/term/fig15_adf_resid.png</code> — Figure 15: ADF on residuals (Engle–Granger)</li>
-        <li><code>images/term/fig17_us_granger.png</code> — Figure 17: US Granger causality test</li>
-        <li><code>images/term/fig18_japan_granger.png</code> — Figure 18: Japan Granger causality test</li>
-        <li><code>images/term/fig19_us_vardecomp.png</code> — Figure 19: US variance decomposition</li>
-        <li><code>images/term/fig20_japan_vardecomp.png</code> — Figure 20: Japan variance decomposition</li>
-      </ul>
-    </section>
 
     <footer class="mt-4">
       <div class="text-center mt-3">
@@ -305,7 +255,7 @@
       <a href="https://drive.google.com/file/d/1U8LtjZrT_7bso6As3WfHdOgdNAzeLPbb/view?usp=sharing" target="_blank">View Full Project (PDF)</a><br/>
       <a href="https://github.com/bbayrakeda/bbayrakeda.github.io/blob/main/AD48GProjectCodes.ipynb" target="_blank">View Full Project Code (GitHub)</a>
     </p>
-                <a href="index.html" class="btn btn-secondary">Back to Home</a>
+      <a href="index.html" class="btn btn-secondary">Back to Home</a>
       </div>
     </footer>
 
