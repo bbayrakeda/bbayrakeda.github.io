@@ -8,12 +8,12 @@
   <style>
     body { background-color: #f9f9f9; }
     .container { 
-      max-width: 1100px; /* daha geniş hale getirildi */
+      max-width: 1100px;
       padding: 30px 25px; 
       background: white; 
       box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
       border-radius: 12px; 
-      margin: 30px auto; /* üst-alt boşluk biraz azaldı */
+      margin: 30px auto;
     }
     img { 
       max-width: 100%; 
@@ -25,63 +25,30 @@
     ul { margin-left: 20px; }
 
     /* Görselleri düzenleme */
-    .img-container {
+    .img-row {
       display: flex;
       justify-content: center;
       gap: 15px;
       flex-wrap: wrap;
       margin: 25px 0;
     }
-
-    .img-popup-small {
-      cursor: pointer;
-      transition: 0.3s;
-      width: 60%;
-      max-width: 600px;
-      height: auto;
-    }
-
-    .img-popup-large {
-      cursor: pointer;
-      transition: 0.3s;
-      width: 85%;
-      max-width: 900px;
-      height: auto;
-    }
-
-    .img-popup-small:hover, .img-popup-large:hover {
-      opacity: 0.7;
-    }
-
-    /* Pop-up tam ekran görüntü */
-    .popup-container {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      padding-top: 50px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.8);
-    }
-    .popup-content {
-      margin: auto;
-      display: block;
-      max-width: 90%;
-      max-height: 90%;
-    }
+    .img-small { width: 45%; max-width: 400px; }
+    .img-large { width: 85%; max-width: 900px; }
+    figure { text-align: center; }
+    figcaption { font-size: 0.9rem; color: #666; margin-top: 5px; }
   </style>
 </head>
+<body>
+  <div class="container">
 
-<div class="container">
+    <h1>A Comparative Time Series Analysis of Income-Consumption Relationships in the US and Japan</h1>
 
-  <h1>A Comparative Time Series Analysis of Income-Consumption Relationships in the US and Japan</h1>
+    <p>
+      <a href="https://drive.google.com/file/d/1U8LtjZrT_7bso6As3WfHdOgdNAzeLPbb/view?usp=sharing" target="_blank">View Full Project (PDF)</a><br/>
+      <a href="https://github.com/bbayrakeda/bbayrakeda.github.io/blob/main/AD48GProjectCodes.ipynb" target="_blank">View Full Project Code (GitHub)</a>
+    </p>
 
-     <p>
-    <a href="https://drive.google.com/file/d/1U8LtjZrT_7bso6As3WfHdOgdNAzeLPbb/view?usp=sharing" target="_blank">View Full Project</a><br/>
-  </p>
-
+    <!-- ===== ABSTRACT ===== -->
     <section id="abstract">
       <h2>Abstract</h2>
       <p>
@@ -95,6 +62,7 @@
       </p>
     </section>
 
+    <!-- ===== INTRODUCTION ===== -->
     <section id="introduction">
       <h2>Introduction</h2>
       <p>
@@ -106,6 +74,7 @@
       </p>
     </section>
 
+    <!-- ===== LITERATURE ===== -->
     <section id="literature">
       <h2>Literature Review</h2>
       <p>
@@ -116,6 +85,7 @@
       </p>
     </section>
 
+    <!-- ===== DATA ===== -->
     <section id="data">
       <h2>Data</h2>
       <p>
@@ -135,6 +105,7 @@
       </figure>
     </section>
 
+    <!-- ===== DESCRIPTIVE ===== -->
     <section id="descriptive">
       <h2>Descriptive & Visual Inspection</h2>
       <p>
@@ -155,6 +126,7 @@
       </div>
     </section>
 
+    <!-- ===== STATIONARITY ===== -->
     <section id="stationarity">
       <h2>Autocorrelations & Unit Root Tests</h2>
       <p>
@@ -183,6 +155,7 @@
       </figure>
     </section>
 
+    <!-- ===== COINTEGRATION ===== -->
     <section id="cointegration">
       <h2>Cointegration Tests</h2>
       <p>
@@ -202,6 +175,7 @@
       </figure>
     </section>
 
+    <!-- ===== VAR ===== -->
     <section id="var">
       <h2>Vector Autoregression (VAR) Analysis</h2>
       <p>
@@ -245,6 +219,7 @@
       </figure>
     </section>
 
+    <!-- ===== STRUCTURAL BREAK ===== -->
     <section id="structural-break">
       <h2>Structural Break Analysis</h2>
       <p>
@@ -254,6 +229,7 @@
       </p>
     </section>
 
+    <!-- ===== CONCLUSION ===== -->
     <section id="conclusion">
       <h2>Conclusion</h2>
       <p>
@@ -264,13 +240,13 @@
         as the major driver of income variance (70% US, 60% Japan). Taken together, these results suggest that the classical Permanent Income
         Hypothesis provides an incomplete description for annual aggregate behavior in these two economies over 1975–2021.
       </p>
-
       <p>
         <strong>Extensions:</strong> future work could (1) split Japanese data pre/post-1991 or include breakpoint dummies, (2) augment models with
         wealth and credit indicators, (3) experiment with quarterly data where available, and (4) apply structural VARs to test alternative identifications.
       </p>
     </section>
 
+    <!-- ===== FIGURES LIST ===== -->
     <section id="figures-list">
       <h2>Figures & image filenames (placeholders)</h2>
       <p><i>Save/replace images under <code>images/term/</code> with the filenames below to match the paper figures.</i></p>
@@ -291,6 +267,7 @@
       </ul>
     </section>
 
+    <!-- ===== REFERENCES ===== -->
     <section id="references">
       <h2>References</h2>
       <p>
@@ -305,31 +282,10 @@
       </p>
     </section>
 
-    <footer>
-      <div>
+    <!-- ===== FOOTER ===== -->
+    <footer class="mt-4">
+      <p class="text-muted">
         Project generated from the uploaded term paper: <em>A Comparative Time Series Analysis of Income-Consumption Relationships in the US and Japan</em>.
-        Source PDF: :contentReference[oaicite:0]{index=0}
-      </div>
-      <div style="margin-top:8px; color:#6b7280">
-        Need this packaged as a deployable folder (HTML + image files) or converted to a multi-page site? Tell me which option you prefer and I will
-        include the ready-to-download structure.
-      </div>
-    </footer>
-  </div>
-</body>
-</html>
-
-
-    <p>
-    <a href="https://github.com/bbayrakeda/bbayrakeda.github.io/blob/main/AD48GProjectCodes.ipynb" target="_blank">View Full Project</a><br/>
-  </p>
-
-  <div class="text-center mt-5">
-    <a href="index.html" class="btn btn-secondary">Back to Home</a>
-  </div>
-
-</div>
-
-</body>
-</html>
-
+      </p>
+      <div class="text-center mt-3">
+        <a href="
