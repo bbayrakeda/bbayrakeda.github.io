@@ -1,1 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Comparative Time Series Analysis of Income-Consumption Relationships in the US and Japan</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <style>
+    body { background-color: #f9f9f9; }
+    .container { 
+      max-width: 1100px; /* daha geniş hale getirildi */
+      padding: 30px 25px; 
+      background: white; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+      border-radius: 12px; 
+      margin: 30px auto; /* üst-alt boşluk biraz azaldı */
+    }
+    img { 
+      max-width: 100%; 
+      margin: 20px auto; 
+      border-radius: 8px; 
+      display: block; 
+    }
+    h1, h2, h3 { margin-top: 30px; }
+    ul { margin-left: 20px; }
+
+    /* Görselleri düzenleme */
+    .img-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 25px 0;
+    }
+
+    .img-popup-small {
+      cursor: pointer;
+      transition: 0.3s;
+      width: 60%;
+      max-width: 600px;
+      height: auto;
+    }
+
+    .img-popup-large {
+      cursor: pointer;
+      transition: 0.3s;
+      width: 85%;
+      max-width: 900px;
+      height: auto;
+    }
+
+    .img-popup-small:hover, .img-popup-large:hover {
+      opacity: 0.7;
+    }
+
+    /* Pop-up tam ekran görüntü */
+    .popup-container {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 50px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+    }
+    .popup-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+    }
+  </style>
+</head>
+
+<div class="container">
+
+  <h1>A Comparative Time Series Analysis of Income-Consumption Relationships in the US and Japan</h1>
+
+     <p>
+    <a href="https://drive.google.com/file/d/1U8LtjZrT_7bso6As3WfHdOgdNAzeLPbb/view?usp=sharing" target="_blank">View Full Project</a><br/>
+  </p>
+
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p>
+        This study investigates the dynamics between national income and household consumption in the United States and Japan using annual
+        series from 1975 to 2021. A battery of time-series techniques — unit root testing, Engle–Granger cointegration checks, Vector
+        Autoregression (VAR), Granger causality tests, variance decompositions, and structural break analysis (Chow test) — is applied to
+        uncover both long-run and short-run relationships. Results indicate no robust cointegration for the US series and mismatched integration
+        orders for Japan (income I(1), consumption trend-stationary), preventing cointegration there. VAR-based analyses show no significant
+        Granger causality in either direction; variance decomposition highlights consumption shocks as a dominant source of variance for income,
+        and a structural break is detected in Japan around 1991.
+      </p>
+    </section>
+
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <p>
+        The link between income and consumption is a central question in macroeconomics. Differences in saving and consumption behavior
+        across countries—especially between Japan, with historically high household saving rates, and the United States, with lower saving
+        and higher consumption propensities—motivate a comparative time-series analysis. Using annual World Bank indicators (adjusted net
+        national income per capita and household final consumption expenditure in constant 2015 US$), this paper explores whether observed
+        co-movements reflect long-run equilibrium relationships or short-run dynamics.
+      </p>
+    </section>
+
+    <section id="literature">
+      <h2>Literature Review</h2>
+      <p>
+        Foundational contributions from Keynes (Absolute Income Hypothesis) and Friedman (Permanent Income Hypothesis) frame our empirical
+        approach. Empirical studies (e.g., Campbell 1987; King et al. 1991; Lettau & Ludvigson 2003) find mixed evidence for cointegration
+        between consumption and income depending on data frequency, variable definitions, and sample period. This paper situates itself within
+        that literature by offering a long-sample (1975–2021) annual comparison between two structurally different economies.
+      </p>
+    </section>
+
+    <section id="data">
+      <h2>Data</h2>
+      <p>
+        Annual series for <strong>Adjusted net national income per capita (constant 2015 US$)</strong> and
+        <strong>Household & NPISH final consumption expenditure (constant 2015 US$)</strong> are taken from the World Bank
+        World Development Indicators for the United States and Japan, covering 1975–2021.
+      </p>
+
+      <figure>
+        <img src="images/term/fig1_us_levels.png" alt="US income and consumption levels (1975-2021)" class="img-large"/>
+        <figcaption><i>Figure 1: US — Income and Consumption levels (1975–2021)</i></figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/term/fig2_japan_levels.png" alt="Japan income and consumption levels (1975-2021)" class="img-large"/>
+        <figcaption><i>Figure 2: Japan — Income and Consumption levels (1975–2021)</i></figcaption>
+      </figure>
+    </section>
+
+    <section id="descriptive">
+      <h2>Descriptive & Visual Inspection</h2>
+      <p>
+        Scatterplots and trends reveal a tighter income–consumption co-movement in the US (R² ≈ 0.993) and a looser relationship in Japan
+        (R² ≈ 0.968). Japan’s series display a flatter trajectory since the early 1990s, motivating a structural break investigation.
+      </p>
+
+      <div class="img-row">
+        <figure>
+          <img src="images/term/fig3_us_scatter.png" alt="US income vs consumption scatter" class="img-small"/>
+          <figcaption><i>Figure 3: US — Income vs Consumption (scatter)</i></figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/term/fig4_japan_scatter.png" alt="Japan income vs consumption scatter" class="img-small"/>
+          <figcaption><i>Figure 4: Japan — Income vs Consumption (scatter)</i></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="stationarity">
+      <h2>Autocorrelations & Unit Root Tests</h2>
+      <p>
+        ACF and PACF plots for levels and first differences guide stationarity decisions. Formal ADF and Phillips–Perron tests indicate:
+      </p>
+      <ul>
+        <li>United States: income and consumption are I(1) (non-stationary in levels; stationary in first differences).</li>
+        <li>Japan: income is I(1), but consumption appears trend-stationary (I(0) after detrending), producing mismatched integration orders.</li>
+      </ul>
+
+      <div class="img-row">
+        <figure>
+          <img src="images/term/fig5_us_acf_diff.png" alt="US consumption ACF (1st diff)" class="img-small"/>
+          <figcaption><i>Figure 5: US — Consumption ACF (1st difference)</i></figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/term/fig6_japan_acf_diff.png" alt="Japan consumption ACF (1st diff)" class="img-small"/>
+          <figcaption><i>Figure 6: Japan — Consumption ACF (1st difference)</i></figcaption>
+        </figure>
+      </div>
+
+      <figure>
+        <img src="images/term/fig7_us_adf.png" alt="US ADF test outputs" class="img-large"/>
+        <figcaption><i>Figure 7: ADF test results for US series (levels & differences).</i></figcaption>
+      </figure>
+    </section>
+
+    <section id="cointegration">
+      <h2>Cointegration Tests</h2>
+      <p>
+        Engle–Granger residual-based tests are applied where appropriate. For the US, both OLS residual inspection and the EG test fail to
+        provide robust evidence of cointegration (EG tau-statistics p-values ≈ 0.25–0.28), implying no stable long-run equilibrium for the
+        chosen annual series. For Japan, cointegration testing is not advisable due to the differing integration orders (income I(1), consumption trend-stationary).
+      </p>
+
+      <figure>
+        <img src="images/term/fig14_residuals.png" alt="Regression residuals (US)" class="img-large"/>
+        <figcaption><i>Figure 14: Residuals from US consumption-on-income regression (actual vs fitted).</i></figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/term/fig15_adf_resid.png" alt="ADF on residuals" class="img-large"/>
+        <figcaption><i>Figure 15: ADF test on Engle–Granger residuals (US) under different deterministic specifications.</i></figcaption>
+      </figure>
+    </section>
+
+    <section id="var">
+      <h2>Vector Autoregression (VAR) Analysis</h2>
+      <p>
+        VAR models with two lags (selected by AIC/BIC) are estimated on stationary transformations (first differences or detrended series).
+        The VAR framework facilitates Granger causality testing and variance decomposition to probe short-run interdependencies.
+      </p>
+
+      <h3>Granger Causality</h3>
+      <p>
+        Granger causality tests detect no statistically significant predictive relationships between income and consumption in either country:
+        past income does not Granger-cause consumption and past consumption does not Granger-cause income at conventional significance levels.
+      </p>
+
+      <div class="img-row">
+        <figure>
+          <img src="images/term/fig17_us_granger.png" alt="US Granger causality test" class="img-small"/>
+          <figcaption><i>Figure 17: US — Granger causality test</i></figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/term/fig18_japan_granger.png" alt="Japan Granger causality test" class="img-small"/>
+          <figcaption><i>Figure 18: Japan — Granger causality test</i></figcaption>
+        </figure>
+      </div>
+
+      <h3>Variance Decomposition</h3>
+      <p>
+        Forecast error variance decompositions (via Cholesky identification) show that consumption variance is mainly explained by its own shocks.
+        Income receives a substantial portion of its variance explained by consumption shocks — approximately <strong>70% for the US</strong> and
+        <strong>60% for Japan</strong> at relevant horizons — suggesting that the short-run dynamics operate more strongly from consumption to income.
+      </p>
+
+      <figure>
+        <img src="images/term/fig19_us_vardecomp.png" alt="US variance decompositions" class="img-large"/>
+        <figcaption><i>Figure 19: US — Variance decomposition (differenced series, Cholesky).</i></figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/term/fig20_japan_vardecomp.png" alt="Japan variance decompositions" class="img-large"/>
+        <figcaption><i>Figure 20: Japan — Variance decomposition (differenced series, Cholesky).</i></figcaption>
+      </figure>
+    </section>
+
+    <section id="structural-break">
+      <h2>Structural Break Analysis</h2>
+      <p>
+        A Chow test with a breakpoint in 1991 (the onset of Japan's "Lost Decades") is performed to assess parameter stability. All three test
+        statistics (F = 4.19, LR = 8.36, Wald = 8.37) reject the null at the 5% level (p ≈ 0.015–0.022), indicating a structural break in Japan's
+        income–consumption relationship around 1991. This motivates potential split-sample VAR estimations or inclusion of interaction dummies.
+      </p>
+    </section>
+
+    <section id="conclusion">
+      <h2>Conclusion</h2>
+      <p>
+        The comparative analysis yields three central findings. First, the US annual series do not display robust cointegration in this sample,
+        contrary to some earlier quarterly-based studies. Second, Japan’s consumption and income exhibit different integration properties (precluding
+        standard cointegration tests), and a structural break in 1991 further alters the relationship. Third, VAR-based short-run analyses show a
+        lack of Granger causality between income and consumption in either country, while variance decompositions point to consumption shocks
+        as the major driver of income variance (70% US, 60% Japan). Taken together, these results suggest that the classical Permanent Income
+        Hypothesis provides an incomplete description for annual aggregate behavior in these two economies over 1975–2021.
+      </p>
+
+      <p>
+        <strong>Extensions:</strong> future work could (1) split Japanese data pre/post-1991 or include breakpoint dummies, (2) augment models with
+        wealth and credit indicators, (3) experiment with quarterly data where available, and (4) apply structural VARs to test alternative identifications.
+      </p>
+    </section>
+
+    <section id="figures-list">
+      <h2>Figures & image filenames (placeholders)</h2>
+      <p><i>Save/replace images under <code>images/term/</code> with the filenames below to match the paper figures.</i></p>
+      <ul>
+        <li><code>images/term/fig1_us_levels.png</code> — Figure 1: US income & consumption (levels)</li>
+        <li><code>images/term/fig2_japan_levels.png</code> — Figure 2: Japan income & consumption (levels)</li>
+        <li><code>images/term/fig3_us_scatter.png</code> — Figure 3: US scatter (income vs consumption)</li>
+        <li><code>images/term/fig4_japan_scatter.png</code> — Figure 4: Japan scatter</li>
+        <li><code>images/term/fig5_us_acf_diff.png</code> — Figure 5: US consumption ACF (1st diff)</li>
+        <li><code>images/term/fig6_japan_acf_diff.png</code> — Figure 6: Japan consumption ACF (1st diff)</li>
+        <li><code>images/term/fig7_us_adf.png</code> — Figure 7: US ADF test output</li>
+        <li><code>images/term/fig14_residuals.png</code> — Figure 14: Residuals (US regression)</li>
+        <li><code>images/term/fig15_adf_resid.png</code> — Figure 15: ADF on residuals (Engle–Granger)</li>
+        <li><code>images/term/fig17_us_granger.png</code> — Figure 17: US Granger causality test</li>
+        <li><code>images/term/fig18_japan_granger.png</code> — Figure 18: Japan Granger causality test</li>
+        <li><code>images/term/fig19_us_vardecomp.png</code> — Figure 19: US variance decomposition</li>
+        <li><code>images/term/fig20_japan_vardecomp.png</code> — Figure 20: Japan variance decomposition</li>
+      </ul>
+    </section>
+
+    <section id="references">
+      <h2>References</h2>
+      <p>
+        Campbell, J. Y. (1987). <em>Does saving anticipate declining labor income? An alternative test of the permanent income hypothesis</em>.
+        Econometrica, 55(6), 1249–1273.<br>
+        Engle, R. F., & Granger, C. W. J. (1987). <em>Co-integration and error correction</em>. Econometrica, 55(2), 251–276.<br>
+        Friedman, M. (1957). <em>A Theory of the Consumption Function</em>. Princeton University Press.<br>
+        Horioka, C. Y. (2010). The (dis)saving behavior of the aged in Japan. <em>Japan and the World Economy</em>, 22(3), 151–158.<br>
+        King, R. G., Plosser, C. I., Stock, J. H., & Watson, M. W. (1991). Stochastic trends and economic fluctuations. <em>AER</em>.<br>
+        Lettau, M., & Ludvigson, S. (2003). Understanding trend and cycle in asset values: Reevaluating the wealth effect on consumption. <em>AER</em>.<br>
+        Slacalek, J. (2004). International evidence on consumption risk sharing. Manuscript, CERGE-EI.
+      </p>
+    </section>
+
+    <footer>
+      <div>
+        Project generated from the uploaded term paper: <em>A Comparative Time Series Analysis of Income-Consumption Relationships in the US and Japan</em>.
+        Source PDF: :contentReference[oaicite:0]{index=0}
+      </div>
+      <div style="margin-top:8px; color:#6b7280">
+        Need this packaged as a deployable folder (HTML + image files) or converted to a multi-page site? Tell me which option you prefer and I will
+        include the ready-to-download structure.
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
+
+
+    <p>
+    <a href="https://github.com/bbayrakeda/bbayrakeda.github.io/blob/main/AD48GProjectCodes.ipynb" target="_blank">View Full Project</a><br/>
+  </p>
+
+  <div class="text-center mt-5">
+    <a href="index.html" class="btn btn-secondary">Back to Home</a>
+  </div>
+
+</div>
+
+</body>
+</html>
 
