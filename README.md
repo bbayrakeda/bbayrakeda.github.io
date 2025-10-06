@@ -8,7 +8,7 @@
 </p>
 
 
-My portfolio: https://bbayrakeda.github.io/portfolio/index.html
+My website: https://bbayrakeda.github.io/portfolio/index.html
 
 
 
